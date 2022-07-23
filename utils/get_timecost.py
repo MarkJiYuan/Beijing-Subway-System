@@ -59,7 +59,7 @@ if __name__=='__main__':
 	line_map = {}
 	timecost = {}
 	'读入线站表，顺序与首末班对应'
-	with open('subway_map.txt', 'r') as f:
+	with open('../output_file/2019-6-4/subway_map.txt', 'r') as f:
 		for line in f.readlines():
 			if line.strip() != '':
 				if line[0] == '&':
@@ -70,7 +70,7 @@ if __name__=='__main__':
 					line_map[line_name].append(station_name)
 
 	'读入首班车时间表'
-	with open('timecost.txt', 'r') as f:
+	with open('../output_file/2019-6-4/timecost.txt', 'r') as f:
 		for line in f.readlines():
 			if line[0] == '&':
 				line_name = line.strip()[1:]
@@ -87,7 +87,7 @@ if __name__=='__main__':
 	timecost_exception(timecost)
 	
 	'将时间表与线站表相结合，生成乘车用时文件，机场线特殊情况直接手动处理了'
-	with open('timecost_list.txt', 'w') as f:
+	with open('../output_file/2019-6-4/timecost_list.txt', 'w') as f:
 		for line_name in line_map:
 			stations = line_map[line_name]
 			for i in range(len(stations)-1):

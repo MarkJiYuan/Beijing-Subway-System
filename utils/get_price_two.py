@@ -24,7 +24,7 @@ if __name__ == '__main__':
 	driver = openChrome()
 
 	station_name_list = []
-	with open('subway_map.txt', 'r') as f:
+	with open('../output_file/2019-6-4/subway_map.txt', 'r') as f:
 		for line in f.readlines():
 			if line.strip() != '':
 				if line[0] != '&':
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 				body = driver.find_element_by_xpath('//pre').text
 				dic = json.loads(body)
 				price = dic['price']
-				with open('price.txt', 'a') as f:
+				with open('../output_file/2019-6-4/price.txt', 'a') as f:
 					f.write(start_station + ' ' + end_station + ' ' + str(price) + ' ' + str(i) + ' ' + str(j) + '\n' )
 				print(start_station + ' ' + end_station + ' ' + str(price) + ' ' + str(i) + ' ' + str(j))
 				
@@ -74,7 +74,7 @@ if __name__ == '__main__':
 				body = driver.find_element_by_xpath('//pre').text
 				dic = json.loads(body)
 				price = dic['price']
-				with open('price.txt', 'a') as f:
+				with open('../output_file/2019-6-4/price.txt', 'a') as f:
 					f.write(start_station + ' ' + end_station + ' ' + str(price) + '\n' )
 				time.sleep(1 + random.random())
 			except:
